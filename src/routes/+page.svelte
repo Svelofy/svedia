@@ -7,8 +7,7 @@
         if(ev.ctrlKey || ev.altKey) return;
 
         if(ev.key == 'Enter') {
-            // TODO
-            goto('results');
+            goto(`/results/${$searchValue}`);
             return;
         }
 

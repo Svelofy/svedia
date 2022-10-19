@@ -1,6 +1,10 @@
 <script lang="ts">
-	import { searchValue } from "../../stores";
+	import { searchValue } from "../../../stores";
 	import { onMount } from 'svelte';
+	import { page } from "$app/stores";
+
+    // Update searchValue according to route
+    $searchValue = $page.params.searchValue;
 
 	async function loadResults(): Promise<void> {
 		const results = await fetch('/api/results', {
