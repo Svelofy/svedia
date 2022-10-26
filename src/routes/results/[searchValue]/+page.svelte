@@ -28,10 +28,13 @@
 
 		// Loop over titles and urls
 		titles.forEach((title, i) => {
+			// Get the working part of the url for our own page route
+			const normalisedSplit = urls[i].split('/');
+
 			// Push to search results
 			searchResults.push({
 				title,
-				url: urls[i]
+				normalised: normalisedSplit[normalisedSplit.length - 1]
 			});
 
 			// Check if looping is done
@@ -50,9 +53,9 @@
 
 {#if loadingFinished}
 
-	{#each searchResults as { title, url }}
+	{#each searchResults as { title, normalised }}
 		<div>
-			<a href={url}>{title}</a>
+			<a href={`/page/${normalised}`}>{title}</a>
 		</div>
 	{/each}
 

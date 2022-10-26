@@ -1,4 +1,4 @@
 export interface SearchResult {
     title: string;
-    url: string;
+    normalised: string;
 }
