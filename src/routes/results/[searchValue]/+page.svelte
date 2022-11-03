@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { page } from "$app/stores";
 	import type { SearchResult } from "src/interfaces";
+	import { fade } from "svelte/transition";
 
     // Update searchValue according to route
     $searchValue = $page.params.searchValue;
@@ -49,14 +50,34 @@
 	});
 </script>
 
-<h1>Results for {$searchValue}</h1>
+<h1>Results for <i>{$searchValue}</i></h1>
 
 {#if loadingFinished}
 
-	{#each searchResults as { title, normalised }}
-		<div>
+	{#each searchResults as { title, normalised }, i}
+		<div in:fade={{ duration: 500, delay: (searchResults.length + i) * 15 }}>
 			<a href={`/page/${normalised}`}>{title}</a>
 		</div>
 	{/each}
 
 {/if}
+
+<style>
+	h1 {
+		text-align: center;
+		font-size: 2.5rem;
+	}
+
+	div {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	div a {
+		font-size: 1.8rem;
+		background: rgb(245, 245, 245);
+		padding: 10px;
+		border-radius: 10px;
+		text-decoration: none;
+	}
+</style>

@@ -45,22 +45,26 @@
     }
 
     .container #logo {
-        font-size: 3rem;
+        font-size: 4rem;
         margin: 0;
         margin-bottom: 10px;
     }
 
     .container #search-input {
-        font-size: 2.1rem;
+        font-size: 2.7rem;
+        max-width: 80%;
+        text-align: center;
+        border-radius: 5px;
+        border: 1px solid rgb(10, 10, 10);
     }
 
     .container #hint {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .container #hint kbd {
         padding: 5px;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         background: #eee;
         border-radius: 10px;
         box-shadow: 0 0 5px black;
